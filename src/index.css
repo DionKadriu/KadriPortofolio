@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Soothing Portfolio Design System - All colors, gradients, fonts, animations defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Soothing color palette */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Sage green primary */
+    --primary: 146 30% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 146 25% 75%;
+    --primary-subtle: 146 15% 95%;
+
+    /* Soft blue secondary */
+    --secondary: 210 25% 88%;
+    --secondary-foreground: 215 25% 27%;
+    --secondary-blue: 210 50% 65%;
+    --secondary-blue-light: 210 40% 85%;
+
+    /* Muted warm gray */
+    --muted: 40 15% 92%;
+    --muted-foreground: 215 15% 55%;
+
+    /* Soft accent */
+    --accent: 25 30% 88%;
+    --accent-foreground: 215 25% 27%;
+    --accent-warm: 25 45% 75%;
+
+    --destructive: 0 65% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 15% 88%;
+    --input: 210 15% 88%;
+    --ring: 146 30% 45%;
+
+    --radius: 0.75rem;
+
+    /* Beautiful gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-light)));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary-blue)), hsl(var(--secondary-blue-light)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-warm: linear-gradient(135deg, hsl(var(--accent-warm)), hsl(var(--accent)));
+
+    /* Elegant shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.08);
+    --shadow-medium: 0 8px 30px -4px hsl(var(--primary) / 0.12);
+    --shadow-elegant: 0 20px 60px -10px hsl(var(--primary) / 0.15);
+
+    /* Smooth animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 30% 12%;
+    --foreground: 210 20% 88%;
+
+    --card: 215 25% 15%;
+    --card-foreground: 210 20% 88%;
+
+    --popover: 215 25% 15%;
+    --popover-foreground: 210 20% 88%;
+
+    --primary: 146 25% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 146 20% 65%;
+    --primary-subtle: 146 15% 20%;
+
+    --secondary: 210 15% 25%;
+    --secondary-foreground: 210 20% 88%;
+    --secondary-blue: 210 45% 55%;
+    --secondary-blue-light: 210 35% 65%;
+
+    --muted: 215 20% 20%;
+    --muted-foreground: 215 10% 65%;
+
+    --accent: 215 20% 22%;
+    --accent-foreground: 210 20% 88%;
+    --accent-warm: 25 35% 65%;
+
+    --destructive: 0 60% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 15% 25%;
+    --input: 215 15% 25%;
+    --ring: 146 25% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Beautiful focus styles */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-medium {
+    box-shadow: var(--shadow-medium);
+  }
+
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+
+  /* Hero Button Variants */
+  .hero-button {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground shadow-medium hover:shadow-elegant transition-bounce;
+  }
+
+  .hero-button-outline {
+    @apply border-primary/30 text-primary hover:bg-primary/10 backdrop-blur-sm transition-bounce;
+  }
+
+  /* Social Icons */
+  .social-icon {
+    @apply w-12 h-12 rounded-full bg-background/10 backdrop-blur-sm border border-border/30 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-bounce hover:scale-110;
+  }
+
+  /* Navigation Styles */
+  .nav-link {
+    @apply text-muted-foreground hover:text-primary transition-smooth font-medium;
+  }
+
+  .nav-cta {
+    @apply bg-primary/10 hover:bg-primary/20 text-primary border-primary/30 transition-smooth;
+  }
+
+  /* Badge Variants */
+  .tech-badge {
+    @apply bg-primary/5 text-primary border-primary/20 hover:bg-primary/10 transition-smooth;
+  }
+
+  .soft-skill-badge {
+    @apply bg-accent/50 text-accent-foreground border-accent-warm/30 hover:bg-accent-warm/20 transition-smooth;
+  }
+
+  .featured-badge {
+    @apply bg-gradient-primary text-primary-foreground shadow-soft;
+  }
+
+  .status-badge {
+    @apply bg-green-50 text-green-700 border-green-200 dark:bg-green-900/30 dark:text-green-400 dark:border-green-700;
+  }
+
+  /* Project Buttons */
+  .project-button {
+    @apply bg-background/90 text-foreground hover:bg-background transition-smooth;
+  }
+
+  .project-button-outline {
+    @apply border-background/50 text-background hover:bg-background/20 transition-smooth;
+  }
+
+  .project-cta {
+    @apply bg-primary hover:bg-primary/90 text-primary-foreground transition-smooth;
+  }
+
+  .project-cta-outline {
+    @apply border-primary/30 text-primary hover:bg-primary/10 transition-smooth;
+  }
+
+  /* Contact Form */
+  .contact-input {
+    @apply border-border/50 focus:border-primary/50 focus:ring-primary/20 transition-smooth;
+  }
+
+  .contact-textarea {
+    @apply border-border/50 focus:border-primary/50 focus:ring-primary/20 transition-smooth resize-none;
+  }
+
+  .contact-button {
+    @apply bg-gradient-primary hover:opacity-90 text-primary-foreground shadow-medium hover:shadow-elegant transition-bounce;
+  }
+}
